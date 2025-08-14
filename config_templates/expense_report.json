@@ -1,0 +1,67 @@
+{
+  "intent": "expense_report",
+  "description": "Format transactions for business expense reporting",
+  
+  "cleaning_focus": {
+    "columns_to_prioritize": ["date", "merchant", "amount", "category", "description", "memo"],
+    "columns_to_ignore": ["row_id", "export_timestamp", "balance", "personal_note"],
+    "required_columns": ["amount", "merchant", "date"]
+  },
+  
+  "categorization": {
+    "emphasis_categories": ["business_meals", "travel", "office_supplies", "software", "equipment", "utilities", "marketing"],
+    "enable_ai_categorization": true,
+    "business_vs_personal": "business_focus",
+    "custom_category_rules": {
+      "office depot": "office_supplies",
+      "staples": "office_supplies",
+      "adobe": "software",
+      "microsoft": "software",
+      "aws": "software",
+      "uber": "travel",
+      "hotel": "travel",
+      "airline": "travel"
+    }
+  },
+  
+  "vendor_processing": {
+    "standardize_names": true,
+    "merge_similar_vendors": true,
+    "vendor_emphasis": ["business_vendors"],
+    "group_by_vendor": true
+  },
+  
+  "analysis_features": {
+    "calculate_category_totals": true,
+    "identify_tax_deductible": true,
+    "detect_duplicates": true,
+    "business_classification": true,
+    "receipt_matching": false
+  },
+  
+  "output_preferences": {
+    "format": "business_report",
+    "include_insights": true,
+    "group_by": "category",
+    "sort_by": "date",
+    "show_totals": true,
+    "include_tax_summary": true,
+    "business_formatting": true
+  },
+  
+  "ai_processing": {
+    "confidence_threshold": 0.8,
+    "force_llm_for_testing": false,
+    "enable_parallel_processing": true,
+    "claude_enhancement": {
+      "reprocess_confidence_threshold": 0.9,
+      "always_reprocess_categories": [
+        "Other",
+        "General Merchandise",
+        "General Services"
+      ],
+      "enable_aggressive_vendor_backfill": true,
+      "llm_cost_cap_per_request": 1.75
+    }
+  }
+}

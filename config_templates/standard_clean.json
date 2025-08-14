@@ -1,0 +1,55 @@
+{
+  "intent": "standard_clean",
+  "description": "Standard data cleaning and AI categorization",
+  
+  "cleaning_focus": {
+    "columns_to_prioritize": ["date", "merchant", "amount", "category", "description", "memo"],
+    "columns_to_ignore": ["row_id", "export_timestamp"],
+    "required_columns": ["amount", "merchant"]
+  },
+  
+  "categorization": {
+    "emphasis_categories": [],
+    "enable_ai_categorization": true,
+    "business_vs_personal": "auto_detect",
+    "custom_category_rules": {}
+  },
+  
+  "vendor_processing": {
+    "standardize_names": true,
+    "merge_similar_vendors": true,
+    "vendor_emphasis": [],
+    "group_by_vendor": false
+  },
+  
+  "analysis_features": {
+    "calculate_category_totals": false,
+    "basic_cleaning_only": true,
+    "detect_duplicates": true,
+    "validate_data_types": true
+  },
+  
+  "output_preferences": {
+    "format": "standard",
+    "include_insights": false,
+    "group_by": "date",
+    "sort_by": "date",
+    "show_totals": false
+  },
+  
+  "ai_processing": {
+    "confidence_threshold": 0.7,
+    "force_llm_for_testing": false,
+    "enable_parallel_processing": true,
+    "claude_enhancement": {
+      "reprocess_confidence_threshold": 0.9,
+      "always_reprocess_categories": [
+        "Other",
+        "General Merchandise",
+        "General Services"
+      ],
+      "enable_aggressive_vendor_backfill": true,
+      "llm_cost_cap_per_request": 1.75
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "intent": "find_category_spending",
+  "description": "Find and analyze spending in specific categories (coffee, dining, etc.)",
+  
+  "cleaning_focus": {
+    "columns_to_prioritize": ["date", "merchant", "amount", "category", "description"],
+    "columns_to_ignore": ["row_id", "export_timestamp", "balance"],
+    "required_columns": ["amount", "merchant"]
+  },
+  
+  "categorization": {
+    "emphasis_categories": ["coffee", "dining", "shopping", "entertainment", "subscriptions"],
+    "enable_ai_categorization": true,
+    "business_vs_personal": "personal_focus",
+    "custom_category_rules": {
+      "starbucks": "coffee",
+      "dunkin": "coffee",
+      "peets": "coffee",
+      "blue bottle": "coffee",
+      "local coffee": "coffee",
+      "cafe": "coffee"
+    }
+  },
+  
+  "vendor_processing": {
+    "standardize_names": true,
+    "merge_similar_vendors": true,
+    "vendor_emphasis": ["category_specific_vendors"],
+    "group_by_vendor": true
+  },
+  
+  "analysis_features": {
+    "calculate_category_totals": true,
+    "frequency_analysis": true,
+    "average_transaction_size": true,
+    "trend_analysis": true,
+    "location_patterns": false
+  },
+  
+  "filtering": {
+    "target_category": null,
+    "exclude_categories": [],
+    "amount_range": {"min": null, "max": null},
+    "date_range": {"start": null, "end": null}
+  },
+  
+  "output_preferences": {
+    "format": "category_detail",
+    "include_insights": true,
+    "group_by": "vendor",
+    "sort_by": "amount_desc",
+    "show_totals": true,
+    "show_frequency": true,
+    "show_trends": true
+  },
+  
+  "ai_processing": {
+    "confidence_threshold": 0.75,
+    "force_llm_for_testing": false,
+    "enable_parallel_processing": true
+  }
+}

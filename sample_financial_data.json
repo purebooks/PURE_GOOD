@@ -1,0 +1,50 @@
+[
+  {
+    "date": "2024-01-15",
+    "merchant": "Starbucks Store #1234",
+    "amount": -4.85,
+    "description": "Coffee and pastry",
+    "row_id": 1,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  },
+  {
+    "date": "2024-01-16",
+    "merchant": "Netflix.com",
+    "amount": -12.99,
+    "description": "Monthly subscription",
+    "row_id": 2,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  },
+  {
+    "date": "2024-01-17",
+    "merchant": "Amazon.com AMZN.COM/BILL",
+    "amount": -89.99,
+    "description": "Online shopping order #123",
+    "row_id": 3,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  },
+  {
+    "date": "2024-01-18",
+    "merchant": "Spotify AB",
+    "amount": -9.99,
+    "description": "Music streaming premium",
+    "row_id": 4,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  },
+  {
+    "date": "2024-01-19",
+    "merchant": "Blue Bottle Coffee",
+    "amount": -6.75,
+    "description": "Iced coffee and muffin",
+    "row_id": 5,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  },
+  {
+    "date": "2024-01-20",
+    "merchant": "PAYPAL *DROPBOX",
+    "amount": -11.99,
+    "description": "Cloud storage subscription",
+    "row_id": 6,
+    "export_timestamp": "2024-01-20T10:30:00Z"
+  }
+]

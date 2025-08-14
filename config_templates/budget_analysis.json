@@ -1,0 +1,65 @@
+{
+  "intent": "budget_analysis",
+  "description": "Analyze spending patterns and identify budget categories",
+  
+  "cleaning_focus": {
+    "columns_to_prioritize": ["date", "merchant", "amount", "category", "description"],
+    "columns_to_ignore": ["row_id", "export_timestamp", "balance", "account_id"],
+    "required_columns": ["amount", "merchant", "date"]
+  },
+  
+  "categorization": {
+    "emphasis_categories": ["dining", "groceries", "entertainment", "transportation", "shopping", "utilities"],
+    "enable_ai_categorization": true,
+    "business_vs_personal": "personal_focus",
+    "custom_category_rules": {
+      "starbucks": "dining",
+      "dunkin": "dining", 
+      "mcdonalds": "dining",
+      "uber": "transportation",
+      "lyft": "transportation",
+      "netflix": "entertainment",
+      "spotify": "entertainment"
+    }
+  },
+  
+  "vendor_processing": {
+    "standardize_names": true,
+    "merge_similar_vendors": true,
+    "vendor_emphasis": ["frequent_vendors", "high_value_vendors"],
+    "group_by_vendor": false
+  },
+  
+  "analysis_features": {
+    "calculate_category_totals": true,
+    "identify_overspending": true,
+    "detect_trends": true,
+    "spending_threshold_alerts": 500,
+    "compare_to_averages": true
+  },
+  
+  "output_preferences": {
+    "format": "category_focused",
+    "include_insights": true,
+    "group_by": "category",
+    "sort_by": "amount_desc",
+    "show_totals": true,
+    "highlight_anomalies": true
+  },
+  
+  "ai_processing": {
+    "confidence_threshold": 0.7,
+    "force_llm_for_testing": false,
+    "enable_parallel_processing": true,
+    "claude_enhancement": {
+      "reprocess_confidence_threshold": 0.9,
+      "always_reprocess_categories": [
+        "Other",
+        "General Merchandise",
+        "General Services"
+      ],
+      "enable_aggressive_vendor_backfill": true,
+      "llm_cost_cap_per_request": 1.75
+    }
+  }
+}

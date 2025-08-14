@@ -1,0 +1,65 @@
+{
+  "intent": "subscription_audit",
+  "description": "Find and analyze recurring subscription charges",
+  
+  "cleaning_focus": {
+    "columns_to_prioritize": ["date", "merchant", "amount", "category", "description"],
+    "columns_to_ignore": ["row_id", "export_timestamp", "balance"],
+    "required_columns": ["amount", "merchant", "date"]
+  },
+  
+  "categorization": {
+    "emphasis_categories": ["subscriptions", "streaming", "software", "utilities", "memberships"],
+    "enable_ai_categorization": true,
+    "business_vs_personal": "personal_focus",
+    "custom_category_rules": {
+      "netflix": "streaming",
+      "spotify": "streaming",
+      "hulu": "streaming",
+      "amazon prime": "subscriptions",
+      "microsoft": "software",
+      "adobe": "software",
+      "gym": "memberships",
+      "magazine": "subscriptions"
+    }
+  },
+  
+  "vendor_processing": {
+    "standardize_names": true,
+    "merge_similar_vendors": true,
+    "vendor_emphasis": ["recurring_vendors"],
+    "group_by_vendor": true
+  },
+  
+  "analysis_features": {
+    "detect_recurring_patterns": true,
+    "calculate_monthly_totals": true,
+    "identify_unused_subscriptions": true,
+    "subscription_frequency": true,
+    "annual_cost_projection": true
+  },
+  
+  "recurring_detection": {
+    "minimum_frequency": 2,
+    "tolerance_days": 3,
+    "amount_variance_threshold": 0.05,
+    "look_back_months": 6
+  },
+  
+  "output_preferences": {
+    "format": "subscription_focused",
+    "include_insights": true,
+    "group_by": "vendor",
+    "sort_by": "amount_desc",
+    "show_totals": true,
+    "show_frequency": true,
+    "show_annual_cost": true,
+    "flag_cancellation_opportunities": true
+  },
+  
+  "ai_processing": {
+    "confidence_threshold": 0.8,
+    "force_llm_for_testing": false,
+    "enable_parallel_processing": true
+  }
+}
